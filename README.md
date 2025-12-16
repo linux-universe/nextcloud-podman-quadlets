@@ -4,7 +4,7 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
 > [!WARNING]
 > IN PRODUCTION
 
-## Steps
+## Installation steps
 
 1. Either clone or manually write the quadlet files to `/etc/containers/systemd/nextcloud`:
 
@@ -30,3 +30,9 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
    ```
 > [!NOTE]
 > Run steps 3 and 4 with the `--user` argument for rootless setups.
+
+## Accessing the Nextcloud command-line interface (occ)
+
+```console
+$ podman exec -it --user www-data systemd-nextcloud php occ
+```
