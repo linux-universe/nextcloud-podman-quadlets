@@ -11,7 +11,7 @@ Environment=REDIS_HOST=systemd-nextcloud-valkey
 Environment=PHP_UPLOAD_LIMIT=10G
 #Uncomment when using a reverse proxy — make sure that the value in TRUSTED_PROXIES matches the IP address of your reverse proxy. Multiple values are supported, separated by spaces.
 #Environment=APACHE_DISABLE_REWRITE_IP=1
-#Environment=TRUSTED_PROXIES=10.88.0.1
+#Environment=TRUSTED_PROXIES=
 
 [Service]
 TimeoutStartSec=900
