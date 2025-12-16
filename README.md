@@ -15,7 +15,7 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
 > [!NOTE]
 > For rootless Podman setups, clone the repository to `~/.config/containers/systemd/nextcloud` instead.
 
-2. Make sure to pass in values for MYSQL_ROOT_PASSWORD and MYSQL_PASSWORD variables before you run this setup
+2. Make sure to pass in values for `MYSQL_ROOT_PASSWORD` and `MYSQL_PASSWORD` variables before you run this setup
 
 3. Reload systemd:
 
