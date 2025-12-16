@@ -1,5 +1,5 @@
 [Pod]
-PublishPort=20000:80
+PublishPort=8080:80
 
 [Install]
 WantedBy=default.target
