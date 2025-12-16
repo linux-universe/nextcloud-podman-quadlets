@@ -1,0 +1,18 @@
+[Container]
+AutoUpdate=registry
+Pod=cloud.pod
+Image=docker.io/library/nextcloud
+Volume=nextcloud-data:/var/www/html:z
+Environment=MYSQL_PASSWORD=
+Environment=MYSQL_DATABASE=nextcloud
+Environment=MYSQL_USER=nextcloud
+Environment=MYSQL_HOST=systemd-nextcloud-db
+Environment=REDIS_HOST=systemd-nextcloud-valkey
+Environment=PHP_UPLOAD_LIMIT=10G
+#Uncomment when using a reverse proxy. make sure the value in TRUSTED_PROXIES is the ip of your reverse proxy
+#Environment=APACHE_DISABLE_REWRITE_IP=1
+#Environment=TRUSTED_PROXIES=10.88.0.1
+
+[Service]
+TimeoutStartSec=900
+

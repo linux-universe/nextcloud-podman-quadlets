@@ -1,0 +1,8 @@
+[Container]
+AutoUpdate=registry
+Pod=cloud.pod
+Image=docker.io/valkey/valkey
+
+[Service]
+TimeoutStartSec=900
+
