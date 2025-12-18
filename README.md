@@ -1,8 +1,8 @@
 # nextcloud-podman-quadlets
 nextcloud for podman, based on https://github.com/nextcloud/docker
 
-> [!WARNING]
-> IN PRODUCTION
+> [!NOTE]
+> If you encounter any issues relating to this installation method, please raise an issue on this repository rather than bothering the official Nextcloud team.
 
 ## Installation steps
 
