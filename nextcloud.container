@@ -1,6 +1,6 @@
 [Container]
 AutoUpdate=registry
-Pod=cloud.pod
+Pod=nextcloud.pod
 Image=docker.io/library/nextcloud
 Volume=nextcloud-data:/var/www/html:z
 Environment=MYSQL_PASSWORD=
