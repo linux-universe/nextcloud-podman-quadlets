@@ -8,10 +8,13 @@ Environment=MYSQL_DATABASE=nextcloud
 Environment=MYSQL_USER=nextcloud
 Environment=MYSQL_HOST=systemd-nextcloud-db
 Environment=REDIS_HOST=systemd-nextcloud-valkey
+#https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html
 Environment=PHP_UPLOAD_LIMIT=10G
-#Uncomment when using a reverse proxy — make sure that the value in TRUSTED_PROXIES matches the IP address of your reverse proxy. Multiple values are supported, separated by spaces.
+#Environment=APACHE_BODY_LIMIT=0
+#Uncomment following liens when using a reverse proxy — make sure that the value in TRUSTED_PROXIES matches the IP address of your reverse proxy. Multiple values are supported, separated by spaces.
 #Environment=APACHE_DISABLE_REWRITE_IP=1
 #Environment=TRUSTED_PROXIES=
+#Environment=NEXTCLOUD_TRUSTED_DOMAINS=
 
 [Service]
 TimeoutStartSec=900
