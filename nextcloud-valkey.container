@@ -1,6 +1,6 @@
 [Container]
 AutoUpdate=registry
-Pod=cloud.pod
+Pod=nextcloud.pod
 Image=docker.io/valkey/valkey
 
 [Service]
