@@ -32,6 +32,7 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
 > Run steps 3 and 4 with the `--user` argument for rootless setups.
 
 ## Reverse Proxy
+
 It is highly recommended that you run this setup with a reverse proxy. To use it, uncomment the reverse proxy-related lines in `nextcloud.container`.
 
 Make sure you configure the necessary redirects for service discovery: https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/reverse_proxy_configuration.html#service-discovery.
@@ -54,6 +55,31 @@ https://example.xyz:443 {
 	reverse_proxy localhost:8080
 }
 ```
+
+## Install and configure the Nextcloud Talk High-performance backend
+
+Follow the steps in the guide at https://nextcloud-talk.readthedocs.io/en/latest/quick-install/#installation-steps. For Step 2, however, follow these instructions instead:
+
+1. Uncomment the additional exposed ports in `nextcloud.pod`
+
+2. Create a new file named `nextcloud-talk-hpb.container`:
+```systemd
+[Container]
+AutoUpdate=registry
+Pod=nextcloud.pod
+Image=ghcr.io/nextcloud-releases/aio-talk:latest
+Environment=NC_DOMAIN=<your_domain>
+Environment=TALK_HOST=<your_signaling_domain>
+Environment=TALK_PORT=3478
+Environment=TURN_SECRET=<your_turn_secret>
+Environment=SIGNALING_SECRET=<your_signaling_secret>
+Environment=INTERNAL_SECRET=<your_internal_secret>
+
+[Service]
+TimeoutStartSec=900
+```
+
+3. Restart your Pod with `systemctl daemon-reload && systemctl restart nextcloud-pod`
 
 ## Accessing the Nextcloud command-line interface (occ)
 
