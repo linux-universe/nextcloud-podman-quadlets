@@ -31,6 +31,30 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
 > [!NOTE]
 > Run steps 3 and 4 with the `--user` argument for rootless setups.
 
+## Reverse Proxy
+It is highly recommended that you run this setup with a reverse proxy. To use it, uncomment the reverse proxy-related lines in `nextcloud.container`.
+
+Make sure you configure the necessary redirects for service discovery: https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/reverse_proxy_configuration.html#service-discovery.
+
+It is also recommended that you configure HSTS. Please check the documentation for your reverse proxy for further information.
+
+caddy example:
+```Caddyfile
+https://example.xyz:443 {
+# HSTS
+	header {
+		Strict-Transport-Security max-age=31536000;
+	}
+
+#redirects
+	redir /.well-known/carddav /remote.php/dav/ 301
+	redir /.well-known/caldav /remote.php/dav/ 301
+
+#reverse proxy
+	reverse_proxy localhost:8080
+}
+```
+
 ## Accessing the Nextcloud command-line interface (occ)
 
 ```console
