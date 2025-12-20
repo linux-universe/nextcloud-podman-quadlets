@@ -1,7 +1,7 @@
 [Pod]
 PublishPort=8080:80
 # Uncomment the following lines when using the Talk-HPB
-#PublishPort=22001:8081
+#PublishPort=<your_port>:8081
 #PublishPort=3478:3478/tcp
 #PublishPort=3478:3478/udp
 
