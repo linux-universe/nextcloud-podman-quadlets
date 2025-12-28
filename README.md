@@ -47,11 +47,11 @@ https://example.xyz:443 {
 		Strict-Transport-Security max-age=31536000;
 	}
 
-#redirects
+# redirects
 	redir /.well-known/carddav /remote.php/dav/ 301
 	redir /.well-known/caldav /remote.php/dav/ 301
 
-#reverse proxy
+# reverse proxy
 	reverse_proxy localhost:8080
 }
 ```
