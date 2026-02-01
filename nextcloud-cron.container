@@ -1,0 +1,9 @@
+[Container]
+AutoUpdate=registry
+Pod=nextcloud.pod
+Image=docker.io/library/nextcloud
+Volume=nextcloud-data:/var/www/html:z
+Entrypoint=/cron.sh
+
+[Service]
+TimeoutStartSec=900
