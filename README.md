@@ -30,6 +30,12 @@ nextcloud for podman, based on https://github.com/nextcloud/docker
 
 > Run steps 3 and 4 with the `--user` argument for rootless setups.
 
+## Accessing the Nextcloud command-line interface (occ)
+
+```console
+$ podman exec -it --user www-data systemd-nextcloud php occ
+```
+
 ## Reverse Proxy
 
 It is highly recommended that you run this setup with a reverse proxy. To use it, uncomment the reverse proxy-related lines in `nextcloud.container`.
@@ -79,9 +85,3 @@ TimeoutStartSec=900
 ```
 
 3. Restart your Pod with `systemctl daemon-reload && systemctl restart nextcloud-pod`
-
-## Accessing the Nextcloud command-line interface (occ)
-
-```console
-$ podman exec -it --user www-data systemd-nextcloud php occ
-```
