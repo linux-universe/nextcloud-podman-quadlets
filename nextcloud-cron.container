@@ -2,6 +2,7 @@
 AutoUpdate=registry
 Pod=nextcloud.pod
 Image=docker.io/library/nextcloud
+# NOTE: The `volumes` config of the `nextcloud-cron` and `nextcloud` containers must match
 Volume=nextcloud-data:/var/www/html:z
 Entrypoint=/cron.sh
 
