@@ -83,7 +83,7 @@ WantedBy=default.target
 Caddy example:
 ```Caddyfile
 https://office.example.xyz:443 {
-reverse_proxy localhost:8081
+	reverse_proxy localhost:8081
 }
 ````
 
