@@ -61,6 +61,34 @@ https://example.xyz:443 {
 }
 ```
 
+## Euro-Office
+1. Create a new file named `euro-office.container`
+```systemd
+[Container]
+#AutoUpdate=registry
+Image=ghcr.io/euro-office/documentserver:latest
+Environment=JWT_SECRET=<provide-a-secret-here>
+PublishPort=8081:80
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+```
+
+2. Start with `systemctl daemon-reload && systemctl restart euro-office`
+
+3. Don't forget to configure your reverse-proxy with it
+Caddy example:
+```Caddyfile
+https://office.example.xyz:443 {
+	reverse_proxy localhost:8081
+}
+````
+
+4. Install and configure the [Euro-Office Nextcloud integration](https://apps.nextcloud.com/apps/eurooffice) with your secret and reverse-proxied URL.
+
 ## Install and configure the Nextcloud Talk High-performance backend
 
 Follow the steps in the guide at https://nextcloud-talk.readthedocs.io/en/latest/quick-install/#installation-steps. For Step 2, however, follow these instructions instead:
